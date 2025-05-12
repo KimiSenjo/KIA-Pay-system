@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KIA Express Pay - Skip the Queue</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="ghana-flag">
+          <div class="red"></div>
+          <div class="yellow"></div>
+          <div class="green"></div>
+          <div class="star"></div>
+        </div>
+        <h1>KIA Express Parking Pay</h1>
+        <p class="tagline">Skip the Queue! Pay in a smart way</p>
+      </header>
+
+      <main>
+        <div class="ticket-section">
+          <div class="input-group">
+            <label for="ticket-number">Enter Your Ticket Number</label>
+            <input
+              type="text"
+              id="ticket-number"
+              placeholder="e.g., KIA12345"
+            />
+            <button id="check-amount" class="btn primary-btn">
+              Check Amount
+            </button>
+          </div>
+        </div>
+
+        <div class="amount-display" id="amount-section" style="display: none">
+          <h2>Your fee: <span id="fee-amount">GHS 10.00</span></h2>
+
+          <div class="payment-options" id="payment-options-section">
+            <h3>Select Payment Method</h3>
+            <div class="payment-methods">
+              <div class="payment-method" id="momo-option">
+                <input
+                  type="radio"
+                  id="mobile-money"
+                  name="payment-method"
+                  value="mobile-money"
+                />
+                <label for="mobile-money">
+                  <span class="method-title">Mobile Money</span>
+                  <div class="network-icons">
+                    <span class="network mtn">MTN</span>
+                    <span class="network vodafone">Vodafone</span>
+                    <span class="network airtel-tigo">AirtelTigo</span>
+                  </div>
+                </label>
+              </div>
+
+              <div class="payment-method" id="card-option">
+                <input
+                  type="radio"
+                  id="card"
+                  name="payment-method"
+                  value="card"
+                />
+                <label for="card">
+                  <span class="method-title">Credit/Debit Card</span>
+                  <div class="card-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div id="momo-form" class="payment-form" style="display: none">
+            <h3>Mobile Money Payment</h3>
+            <div class="form-group">
+              <label for="network-provider">Select Network</label>
+              <select id="network-provider">
+                <option value="mtn">MTN Mobile Money</option>
+                <option value="vodafone">Vodafone Cash</option>
+                <option value="airtel-tigo">AirtelTigo Money</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="momo-number">Mobile Money Number</label>
+              <input
+                type="tel"
+                id="momo-number"
+                placeholder="e.g., 024XXXXXXX"
+              />
+            </div>
+            <div class="button-group">
+              <button id="back-to-payment" class="btn secondary-btn">
+                Back
+              </button>
+              <button id="pay-momo" class="btn primary-btn">Pay Now</button>
+            </div>
+          </div>
+
+          <div id="card-form" class="payment-form" style="display: none">
+            <h3>Card Payment</h3>
+            <div class="form-group">
+              <label for="card-number">Card Number</label>
+              <input
+                type="text"
+                id="card-number"
+                placeholder="XXXX XXXX XXXX XXXX"
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group half">
+                <label for="expiry-date">Expiry Date</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY" />
+              </div>
+              <div class="form-group half">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="XXX" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="card-name">Name on Card</label>
+              <input type="text" id="card-name" placeholder="e.g., John Doe" />
+            </div>
+            <div class="button-group">
+              <button id="back-to-payment-card" class="btn secondary-btn">
+                Back
+              </button>
+              <button id="pay-card" class="btn primary-btn">Pay Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-message" id="success-section" style="display: none">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2>Payment successful!</h2>
+          <p>You can now exit without visiting the booth.</p>
+          <p class="receipt-info">
+            Receipt #: <span id="receipt-number">KIA-12345-XYZ</span>
+          </p>
+          <button id="new-payment" class="btn secondary-btn">
+            Make Another Payment
+          </button>
+        </div>
+      </main>
+
+      <footer>
+        <div class="support-info">
+          <p>Need help? Contact customer support:</p>
+          <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+          <p><i class="fas fa-envelope"></i> support@kiaexpressparking.com</p>
+        </div>
+        <p class="copyright">
+          © 2023 KIA Express Parking Pay. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <div class="ghana-flag-watermark"></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

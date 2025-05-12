@@ -1,0 +1,685 @@
+/* Base Styles */
+:root {
+    --red: #CE1126;
+    --yellow: #FCD116;
+    --green: #006B3F;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #333333;
+    --border-radius: 12px;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+    --gradient-primary: linear-gradient(135deg, #008a4c 0%, #006B3F 100%);
+    --gradient-secondary: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark-gray);
+    line-height: 1.6;
+    position: relative;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, #ffffff, #f9f9f9);
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Ghana Flag Styles */
+.ghana-flag {
+    width: 60px;
+    height: 40px;
+    position: relative;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+    transform: perspective(500px) rotateX(5deg);
+}
+
+.ghana-flag .red {
+    background-color: var(--red);
+    height: 33.33%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.ghana-flag .yellow {
+    background-color: var(--yellow);
+    height: 33.33%;
+    width: 100%;
+    position: absolute;
+    top: 33.33%;
+}
+
+.ghana-flag .green {
+    background-color: var(--green);
+    height: 33.33%;
+    width: 100%;
+    position: absolute;
+    top: 66.66%;
+}
+
+.ghana-flag .star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background-color: var(--black);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background-color: var(--black);
+}
+
+/* Ghana Flag Watermark */
+.ghana-flag-watermark {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect width="600" height="133.33" fill="%23CE1126"/><rect y="133.33" width="600" height="133.33" fill="%23FCD116"/><rect y="266.66" width="600" height="133.33" fill="%23006B3F"/><path d="M300,200 L316,248 L368,248 L326,279 L342,327 L300,296 L258,327 L274,279 L232,248 L284,248 Z" fill="%23000"/></svg>') no-repeat;
+    background-size: 100% auto;
+    background-position: bottom right;
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px 0;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+}
+
+h1 {
+    color: var(--dark-gray);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    letter-spacing: 0.5px;
+}
+
+.tagline {
+    color: var(--green);
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Main Content Styles */
+main {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 25px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--red), var(--yellow), var(--green));
+    z-index: 1;
+}
+
+.ticket-section {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, select {
+    padding: 14px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    width: 100%;
+    transition: var(--transition);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0, 107, 63, 0.15);
+    background-color: #fff;
+}
+
+.btn {
+    padding: 14px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    display: block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%) rotate(45deg);
+    transition: transform 0.6s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    transform: translateX(100%) rotate(45deg);
+}
+
+.primary-btn {
+    background: var(--gradient-primary);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 107, 63, 0.2);
+}
+
+.primary-btn:hover {
+    box-shadow: 0 6px 15px rgba(0, 107, 63, 0.3);
+    transform: translateY(-2px);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 107, 63, 0.2);
+}
+
+.secondary-btn {
+    background: var(--gradient-secondary);
+    color: var(--dark-gray);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.secondary-btn:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.secondary-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Amount Display Styles */
+.amount-display {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.amount-display h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+#fee-amount {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: rgba(0, 107, 63, 0.05);
+}
+
+/* Payment Options Styles */
+.payment-options {
+    margin-bottom: 25px;
+}
+
+.payment-options h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-align: left;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.payment-options h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-method {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-method::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    z-index: 0;
+}
+
+.payment-method:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+}
+
+.payment-method input[type="radio"] {
+    display: none;
+}
+
+.payment-method label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.method-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.network-icons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.network {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.network:hover {
+    transform: translateY(-2px);
+}
+
+.mtn {
+    background: linear-gradient(135deg, #ffcc00 0%, #ffb700 100%);
+    color: #000;
+}
+
+.vodafone {
+    background: linear-gradient(135deg, #e60000 0%, #cc0000 100%);
+}
+
+.airtel-tigo {
+    background: linear-gradient(90deg, #ff7f00, #0077cc);
+}
+
+.card-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.card-icons i {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+    transition: transform 0.2s;
+}
+
+.card-icons i:hover {
+    transform: translateY(-2px);
+}
+
+.fa-cc-visa {
+    color: #1a1f71;
+}
+
+.fa-cc-mastercard {
+    color: #eb001b;
+}
+
+/* Payment Form Styles */
+.payment-form {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 22px;
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+    z-index: 0;
+}
+
+.payment-form h3 {
+    margin-bottom: 18px;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 8px;
+}
+
+.payment-form h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.half {
+    flex: 1;
+}
+
+/* Success Message Styles */
+.success-message {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.success-icon {
+    font-size: 4.5rem;
+    color: var(--green);
+    margin-bottom: 25px;
+    filter: drop-shadow(0 3px 5px rgba(0, 107, 63, 0.2));
+}
+
+.success-message h2 {
+    margin-bottom: 12px;
+    color: var(--green);
+    font-size: 1.8rem;
+}
+
+.receipt-info {
+    margin: 25px 0;
+    font-weight: 500;
+    padding: 12px;
+    background: rgba(0, 107, 63, 0.05);
+    border-radius: 8px;
+    display: inline-block;
+}
+
+#receipt-number {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 25px 0;
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.support-info {
+    margin-bottom: 18px;
+}
+
+.support-info p {
+    margin-bottom: 8px;
+}
+
+.support-info i {
+    color: var(--green);
+    margin-right: 5px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #777;
+    opacity: 0.8;
+}
+
+/* Active Payment Method */
+.payment-method.active {
+    border: 2px solid var(--green);
+    background-color: #fff;
+    box-shadow: 0 5px 20px rgba(0, 107, 63, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Media Queries for larger screens */
+@media (min-width: 768px) {
+    .container {
+        max-width: 700px;
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .payment-methods {
+        flex-direction: row;
+    }
+
+    .payment-method {
+        flex: 1;
+    }
+
+    .btn {
+        width: auto;
+        min-width: 200px;
+        margin: 0 auto;
+    }
+
+    .input-group {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .input-group label {
+        flex: 1;
+    }
+
+    .input-group input {
+        flex: 2;
+    }
+
+    .input-group button {
+        flex: 1;
+    }
+    
+    main {
+        padding: 35px;
+    }
+    
+    .payment-form {
+        padding: 28px;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.success-icon {
+    animation: pulse 2s infinite;
+}
+
+/* Glossy effects */
+input, select, .btn, .payment-method, .payment-form {
+    backdrop-filter: blur(5px);
+}
+
+/* Subtle hover animations */
+input:hover, select:hover {
+    border-color: rgba(0, 107, 63, 0.3);
+}
+
+/* Subtle loading animation */
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.btn:disabled {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:disabled::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+/* Button group for form navigation */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.button-group .btn {
+    flex: 1;
+}
+
+@media (max-width: 767px) {
+    .button-group {
+        flex-direction: column;
+    }
+}
